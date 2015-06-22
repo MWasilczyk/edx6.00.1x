@@ -9,3 +9,4 @@ for letter in s:
         num_vowels += 1
 
 print "Number of vowels: %r" % num_vowels
+print sum(1 for x in s if x in 'aeiouAEIOU')
