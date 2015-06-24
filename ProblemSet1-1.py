@@ -1,16 +1,14 @@
 # Write a program that counts up the number of vowels contained in the string s.
 
 s = 'a slightly different type of string'
-'''
-vowels = 'aeiouAEIOU'
-num_vowels = 0
 
-for letter in s:
-    if letter in vowels:
-        num_vowels += 1
+def countVowels(x):
+    if len(x) == 0:
+        return 0
+    if x[0] in 'aeiouAEIOU':
+        return 1 + countVowels(x[1:len(x)])
+    else:
+        return countVowels(x[1:len(x)])
+        
+print "Number of vowels: %r" % countVowels(s)
 
-
-
-print "Number of vowels: %r" % num_vowels
-'''
-print sum(1 for x in s if x in 'aeiouAEIOU')
