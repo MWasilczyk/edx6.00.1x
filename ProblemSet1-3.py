@@ -2,19 +2,18 @@
 # letters occur in alphabetical order. 
 
 s = 'abcbcd'
-long_string = ''
-iteration = 0
 
-
-while iteration < len(s):
-    current_length = 1
-    for spot in range(iteration,len(s)-1):
-        if s[spot] > s[spot + 1]:
-            break
-        else:
-            current_length += 1
-    if current_length > len(long_string):
-        long_string = s[iteration:iteration + current_length]
-    iteration += 1
+def longABC(x):
+    def alphaString(x):
+        if len(x) == 1 or x[0] > x [1]:
+            return x[0]
+        return x[0] + alphaString(x[1:len(x)])
+        
+    i = ''
+    for c in range(len(x)):
+        if len(alphaString(x[c:len(x)]) > len(i):
+            i = alphaString(x[c:len(x)])
     
-print 'Longest substring in alphabetical order is: %s' % long_string
+    return i
+    
+print 'Longest substring in alphabetical order is: %s' % longABC(s)
