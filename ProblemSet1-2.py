@@ -1,10 +1,13 @@
 #Write a program that prints the number of times the string 'bob' occurs in s.
 
 s = 'bobobobobobobobobobobobob'
-num_bob = 0
 
-for position in range(len(s)-2):
-    if s[position] == 'b' and s[position + 1] == 'o' and s[position + 2] == 'b':
-        num_bob += 1
-        
-print "Number of times bob occurs is: %r" % num_bob
+def bobCount(x):
+    if len(x) < 3:
+        return 0
+    if x[0:3] == 'bob':
+        return 1 + bobCount(x[1:len(x)])
+    else:
+        return 0 + bobCount(x[1:len(x)])
+
+print "Number of times bob occurs is: %r" % bobCount(s)
