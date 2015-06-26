@@ -19,6 +19,7 @@ def radiationExposure(start, stop, step):
     '''
     # FILL IN YOUR CODE HERE...
     num_steps = int((stop - start) / step)
+    volume = 0.0
     for x in range(num_steps):
         volume += f(start) * step
         start += step
