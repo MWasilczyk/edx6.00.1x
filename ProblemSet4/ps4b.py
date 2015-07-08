@@ -64,7 +64,29 @@ def compPlayHand(hand, wordList, n):
     wordList: list (string)
     n: integer (HAND_SIZE; i.e., hand size required for additional points)
     """
-    # TO DO ... <-- Remove this comment when you code this function
+    score = 0
+    # As long as there are still letters left in the hand:
+    while calculateHandlen(hand) > 0:
+        # Display the hand
+        print 'Current hand: ',
+        displayHand(hand),
+        # Ask user for input
+        newstring = compChooseWord(hand,wordList,n)
+        if newstring == 'None':
+            break
+        # If the word is not valid:
+        if isValidWord(newstring, hand, wordList) == False:        
+            # Reject invalid word (print a message followed by a blank line)
+            print 'Invalid word, please try again.\n'
+        # Otherwise (the word is valid):
+        else:
+            # Tell the user how many points the word earned, and the updated total score, in one line followed by a blank line
+            score += getWordScore(newstring,n)
+            print '"%s" earned %d points. Total: %d points.\n' % (newstring,getWordScore(newstring,n), score)
+            # Update the hand
+            hand = updateHand(hand,newstring)
+    # Game is over (user entered a '.' or ran out of letters), so tell user the total score
+    print 'Total score: %d points.' % score
     
 #
 # Problem #8: Playing a game
